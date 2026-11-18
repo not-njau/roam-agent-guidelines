@@ -1,0 +1,349 @@
+---
+name: roam-agent-guidelines
+description: Rules for how to write in a Roam Research graph so the reader can understand, decide and act. Use whenever you read or write in Roam, or when the user says "use my Roam agent guidelines".
+---
+
+# Roam agent guidelines
+
+Follow these rules whenever you write in the user's Roam graph. They are written in Roam's own markup, so each example shows exactly what to write. Where a rule says (see "..."), the named rule is elsewhere in this file.
+
+The rules need the Color Highlighter extension in Roam. Boxes, cards, callouts and tables are native to Roam.
+
+- [[>]] [[!INFO]] **What these rules cover, and why**
+  - A persona, a prompt or the user's request decides __what__ to write. **Writing rules** decide __how__ it is written in Roam. **Graph rules** decide __where__ to look and write.
+  - If they conflict on structure, the persona or prompt wins, and these rules still apply inside it.
+  - **The Problem: the graph can hold more than the reader can understand, and agents widen the gap.** Every rule here helps the reader understand what was written, so they can decide and act on it. Direct attention (see "2. Direct attention") shows where to look, Thread ideas (see "3. Thread ideas") shows how ideas relate, and boxes, cards and choices help them understand, decide and execute.
+  - **One principle guides them: be bold with forms, and never unicorn vomit.** Use every form on this page, alone or combined, wherever it helps the reader understand, decide or act. Look for what belongs together, what compares, and what waits for the user, and don't wait to be asked. Use colour wherever it carries meaning, and never as decoration.
+    - This page is an example of itself: each rule is written in the form it describes.
+      - **Examples never conflict with rules.** Where you can, build the rule into its example. Otherwise, give the rule, then the example. If a conflict is truly needed, explain why beside it.
+- [[>]] [[!WARNING]] **Never skip**
+  - **Emphasise inside every form.** Tables, TODOs, callouts and headers take bold, highlights and colour too: a table cell can hold #c:ORANGE **a bold action**.
+  - **Combine forms when it helps.** A table can hold choices, a callout can hold a table, a box can hold a highlight, as in this decision table (see "Every other set of options goes in a decision table").
+  - **Offer every choice in a decision table (see "Every other set of options goes in a decision table"), or in a card grid (see "Use a card grid")** when the reader must see the options side by side. Each row or card holds its own `{{or:}}` choice and an empty `>` reply slot.
+  - **Check the hue table (see the hue table under "Colour") before writing any colour.** A colour is data; a wrong hue files content under the wrong meaning.
+  - **Nest by relationship (see "Nesting asserts a relationship").** Indent each idea under the one it relates to. Steps in a sequence are siblings, never a staircase.
+  - **Link the most specific block (see "Link the most specific block").** Never link a heading when you mean the table, image or rule beneath it.
+  - **Thread every chain the reader must follow (see "Thread every chain the reader must follow"):** a calculation, an explanation, an analogy, or anything else that helps. Link the items that exist as blocks, with an alias that names the meaning. Mark the rest: only the item each step works on, in as few words as possible, and give weight only to the payoff.
+  - **Close the loop (see "Close the loop").** Log the outcome and tick completed TODOs before finishing.
+  - **Read back everything you write.** Check its parent, nesting, links, formatting and TODO state, then run the final check (see "Verification") before reporting it done.
+- **Writing rules**
+  - **1. Say one thing**
+    - One idea per block: a claim, question, decision, constraint or implication.
+    - If a block holds two ideas, split it before acting on either.
+    - Record the conclusions reached, not a long chain of thought.
+  - **2. Direct attention**
+    - **Callouts:** `[[>]] [[!KEYWORD]] **Title**`, with content as nested children, like the callouts on this page.
+      - {{[[table]]}}
+        - **Callout**
+          - **Use for**
+        - `!NOTE`
+          - Working step, update, observation
+        - `!INFO`
+          - Background or reference fact
+        - `!QUESTION`
+          - Awaiting the user's decision
+        - `!IMPORTANT`
+          - The product of a step. For a tip, start the title with **Tip:**
+        - `!SUCCESS`
+          - Settled or approved
+        - `!WARNING`
+          - Risk to weigh **before** acting
+        - `!DANGER`
+          - Action that destroys data or cannot be undone
+        - `!FAILURE`
+          - A test or outcome that failed
+        - `!BUG`
+          - A defect in a tool or code
+        - `!SUMMARY`
+          - Recap of a session or day
+        - `!EXAMPLE`
+          - An example
+        - `!QUOTE`
+          - Verbatim words from anyone but the user
+      - An answered `!QUESTION` stays; the answer goes under a new `!SUCCESS`.
+    - **Inline markup:** use the mark that best reveals the point (see "Choose the weight that best shows the point") to the reader, and no more.
+      - {{[[table]]}}
+        - **Mark**
+          - **Use for**
+        - `**bold**`
+          - **The cue:** a decision, action, label or example to catch
+        - `__italics__`
+          - __A quieter distinction:__ nuance, a defined term, a title
+        - `^^highlight^^`
+          - ^^A native mark:^^ the phrase that matters most. The weight table (see the weight table under "Heaviness") shows what is heavier.
+        - `~~strike~~`
+          - ~~Superseded~~ only
+        - inline code
+          - Literal syntax or names
+        - underline
+          - Only with a colour tag: #c:silver __like this__
+      - **Mark the fewest words that carry the point.**
+        - Usually one or two words.
+        - Mark a longer phrase only when the point needs it.
+        - Bold the question or point being addressed.
+    - **Colour** needs the Color Highlighter extension. Every rule above must still work without it.
+      - Write `#c:hue` then one space, then the markup. The tag colours the first markup after it, so put italics inside: #c:green ^^__like this__^^. Written straight after the tag, `__` becomes an underline.
+        - **Text colour is written with `**`,** because the tag needs markup to colour. Here the `**` only carries the colour. In lowercase, `#c:green **x**` shows regular coloured text, not bold. In capitals, `#c:ORANGE **x**` shows bold dark text. This is how the Color Highlighter extension works.
+      - Lowercase is the light shade: #c:orange ^^orange^^. Capitals give the dark one: #c:ORANGE ^^ORANGE^^. Yellow has one shade.
+        - **Dark is heavier.** A capital shade gives a thicker underline and a heavier highlight.
+      - {{[[table]]}}
+        - **Hue**
+          - **Meaning**
+        - #c:green ^^green^^
+          - Reasoning
+        - #c:orange ^^orange^^
+          - Actions and explanations
+        - #c:blue ^^blue^^
+          - Illustrations: analogies, pictures, and examples where a callout can't be used, such as inside a thread or a table cell
+        - #c:teal ^^teal^^
+          - Assumptions or prerequisites
+        - #c:red ^^red^^
+          - Alerts, written as a bold highlight: #c:red ^^**Alert:**^^
+        - #c:fuchsia ^^fuchsia^^
+          - Awaiting input or a decision, written as a bold highlight: #c:fuchsia ^^**Stop:**^^, as in the workflow example (see "Example: a workflow that combines forms")
+        - ^^yellow^^ (general highlight)
+          - General emphasis
+        - #c:silver ^^silver^^
+          - Neutral grouping, such as section titles and topic names: #c:silver ^^**Indices**^^ as a heading, #c:silver ^^indices^^ in a sentence
+      - **Keep each hue to its meanings in the hue table.** Silver is the only neutral; never use black. Do not add a colour that repeats a callout.
+        - **Example, outside a thread:** if #c:teal ^^the rate stays at 5%^^, the loan doubles in about 14 years.
+      - **Blue uses the highlight,** never text colour or an underline, so it never looks like a link: #c:blue ^^like this^^.
+      - **Action labels:** colour only the action word, in dark orange, with bold kept: #c:ORANGE **Subtract** **3:**
+        - The number or object after it keeps the normal colour.
+        - The label is a cue beside the thread, not part of it, so it never breaks "one hue family per thread".
+        - An action label names a step the reader carries out, such as Subtract. A label that names the kind of step, such as Explain or So, stays plain bold.
+      - **Pair a visual signal with a text one,** such as #c:yellow **Point:** inside a yellow box. A coloured header counts as text, because its words carry the meaning, so a box in the header's hue (see "A box takes its header's hue") groups and does not repeat. Never add a second colour that only repeats what a box or callout already says.
+    - **Heaviness: lead attention by weight.**
+      - Weight marks the payoff, not the path to it.
+        - This holds in any chain the reader follows.
+      - {{[[table]]}}
+        - **Weight**
+          - **Marks of equal weight**
+            - **Written as**
+              - **Use for**
+        - **0**
+          - #c:green **light text colour**, equal to __italics__
+            - `#c:green **x**`
+              - A quiet distinction that carries a hue meaning.
+        - **1**
+          - #c:ORANGE **dark text colour**, equal to **bold**
+            - `#c:ORANGE **x**`
+              - The cue: an action label, a label or the question.
+        - **2**
+          - #c:green __thin underline__ or #c:green ^^light highlight^^
+            - `#c:green __x__`, `#c:green ^^x^^`
+              - A working item: what each step works on. Equal in weight to the plain ^^yellow highlight^^.
+        - **3**
+          - #c:GREEN __thick underline__ or #c:GREEN ^^dark highlight^^
+            - `#c:GREEN __x__`, `#c:GREEN ^^x^^`
+              - The payoff. In prose, prefer the thick underline. In maths, use the dark highlight.
+        - **+ bold**
+          - #c:GREEN ^^**the answer**^^
+            - `#c:GREEN ^^**x**^^`
+              - The cap: on a payoff only, once, when the reader is still unclear. Nothing goes above it.
+        - **Block**
+          - `#.bg-green`, `#.box-ch-green`
+            - on the block
+              - **Not a phrase mark:** it weighs a whole block, or groups a block with its children.
+      - **The hues in the table are only examples.** Each weight works the same in every hue. The hue comes from the hue table (see the hue table under "Colour").
+      - **Choose the weight that best shows the point.** The table is a guide, not a strict sequence.
+        - Inside a thread (see "Thread a chain"), the payoff rules (see "Spend weight at the payoff") set the weight. This freedom is for emphasis outside a thread.
+        - **Best** means the form that helps this reader understand the point, kept minimal.
+        - When a box, a card, a table or a bold highlight shows the point best, go straight to it.
+        - When the user asks for a particular form, use that form.
+      - **Spend weight at the payoff.** The chain itself is threaded under Thread a chain (see "Thread a chain").
+        - **No question, no marks:** a passage that answers no question gets no thread marks.
+        - **Payoff test:** delete the steps. If the phrase still states the conclusion, it is the payoff.
+        - **One payoff per chain.** Two payoffs mean two chains.
+        - **Working items take weight 2:** the thin line or the light highlight, on the item each step works on. In maths, use the thin line.
+          - **In maths, a working item is an operand, never an operator.** Mark only what the step works on, such as #c:green __3__ − #c:green __5__. **An answer is marked whole, signs and operators included,** whether it is the payoff or a result within the steps, such as #c:green __2x = 8__.
+        - **The payoff takes weight 3:** the thick line or the dark highlight. In prose, prefer the thick line. In maths, use the dark highlight.
+        - **In LaTeX, the mark wraps the maths.** Split the equation at the item, then mark that piece: #c:green __$$10^{23}$$__ for a working item, #c:GREEN ^^$$4.18\times10^{23}$$^^ for the payoff.
+          - **Keep each operator in an unmarked piece, and pad it** with `\times\,` or `{}-`, unless it belongs to an answer.
+          - **Exception: inside a fraction, root or exponent,** where a split cannot go, write the mark in the LaTeX with `\textcolor`, one mark per operand: $$10^{\textcolor{green}{\underline{3}}-\textcolor{green}{\underline{5}}}$$ or $$\frac{x+5}{\textcolor{green}{\underline{3y}}}$$. KaTeX's green is close to the extension's, but not the same shade.
+            - **Write it exactly like this.** Copy the source, and change only the numbers or letters:
+              - `10^{\textcolor{green}{\underline{3}}-\textcolor{green}{\underline{5}}}` gives $$10^{\textcolor{green}{\underline{3}}-\textcolor{green}{\underline{5}}}$$
+              - `\frac{x+5}{\textcolor{green}{\underline{3y}}}` gives $$\frac{x+5}{\textcolor{green}{\underline{3y}}}$$
+            - **Never put two opening braces together in LaTeX.** Roam reads `{{` as the start of a component, so the equation stops rendering. `\textcolor` never needs an extra group, so never wrap a mark in its own braces, as in `{\color{green}...}`.
+        - **Never drop weight within a chain.** Once added, it stays to the payoff.
+        - **Equal items take equal weight.** A list is a chain only when each item builds on the one before; otherwise mark every item alike.
+          - **Example:** bring #c:orange __a pen__, #c:orange __a ruler__ and #c:orange __a calculator__. Each item gets the same mark, and none of them is a payoff.
+        - **The cap:** when the reader is still unclear, a payoff may add bold once, as in add weight when the user is still unclear (see "Add weight when the user is still unclear"). Nothing goes above the dark highlight with bold.
+        - **Section titles are the exception.** They may use bold colour highlights, such as #c:green ^^**Insights**^^, to show the hierarchy. The payoff rules apply to emphasis inside the content, not to headings.
+      - **Add weight when the user is still unclear.**
+        - Start from the weight you first chose.
+        - Each time you re-explain the same point, climb a step higher.
+        - Combine more forms as you go, such as an example, a table or a box.
+    - **Whole blocks:** `#.bg-hue` makes one block stand out; `#.bg-ch-hue` or `#.box-ch-hue` groups a block with its children. #.box-ch-silver
+      - #c:yellow **Point:** a boxed point holds its own detail. #.box-ch-yellow
+        - **Example:** its example sits in a box inside it. #.box-ch-silver
+      - #c:ORANGE ^^**A box takes its header's hue.**^^ This header's words carry the meaning, and the orange box groups what belongs to it. Inside a coloured box, the header takes the dark shade, as here, so it stands out from the light box. #.box-ch-orange
+        - **The header is the text signal,** so a box in its hue groups and does not repeat, as the pairing rule (see "Pair a visual signal with a text one") allows.
+        - **Every coloured hue takes the dark shade,** fuchsia and red too: #c:FUCHSIA ^^**Open:**^^ in a fuchsia box. Yellow has one shade, and silver, the neutral, keeps its light shade in a silver box.
+        - **A header in plain text needs no box,** like **Your choice** under a callout.
+      - #c:silver ^^**A boxed header is collapsed by default.**^^ You opened this one to read it. #.box-ch-silver
+        - The closed headers show the shape of the page. The reader opens only what they need.
+        - **Exceptions stay open:** an example, an illustration or a solution, such as the maths solutions (see "Example: find x in 2x + 3 = 11") on this page, and a box that holds a choice still awaiting the reader, until the choice is made.
+      - #c:silver ^^**Cards under a coloured header sit inside its box.**^^ #.box-ch-silver #.card-grid
+        - **This card** stays inside the box.
+        - **So does this one.**
+      - #c:silver ^^**A table under a coloured header sits inside its box.**^^ #.box-ch-silver
+        - {{[[table]]}}
+          - **Header**
+            - **Box**
+          - #c:silver ^^silver^^
+            - silver box, as here
+          - #c:ORANGE ^^orange^^
+            - orange box
+          - plain text
+            - no box
+    - **Choices:** `{{or: a | b | c}}`; the chosen option moves to the front.
+      - **Start each decision choice with `awaiting`:** `{{or: awaiting | approve | amend | reject}}`. While it shows awaiting, no decision is made; any other value means the user chose. If awaiting doesn't fit the options, use another phrase that clearly means no decision yet.
+      - ^^**Dropdown layout in cards and boxes:**^^ set the containing card or box, and any nested proposal block that directly contains the dropdown, to document view. Align the dropdown right and keep its empty `>` reply beneath it, aligned left. This applies to proposal decisions as well as option comparisons. Do not change a table or its rows to document view for a dropdown; keep the table structure.
+      - **Use a card grid** to compare two to four options side by side, such as layouts or worked examples, or to group items that go together, such as parallel steps. A grouping uses an even number of cards. Each comparison card holds its own `{{or:}}` choice and an empty `>` reply slot. Set each card to document view and align its choice to the right, as here: #.card-grid
+        - **Option A**
+          - {{or: awaiting | approve | amend | reject}}
+            - >
+        - **Option B**
+          - {{or: awaiting | approve | amend | reject}}
+            - >
+      - **Every other set of options goes in a decision table.** It combines forms: the finding and why it matters, a recommendation, and in **each row** its own `{{or:}}` choice and an empty `>` cell for the user's reply. Never put the choice below the table.
+        - {{[[table]]}}
+          - **Item**
+            - **Finding and why it matters**
+              - **Recommendation**
+                - **Choice**
+                  - **Comment**
+          - Blue looks like a link
+            - Aliased links are blue, so blue text or a blue underline can read as a link.
+              - Write blue as a highlight: #c:blue ^^like this^^
+                - {{or: awaiting | approve | amend | reject}}
+                  - >
+      - **Example: a workflow that combines forms.** Each stage is a box with numbered steps, each wait for the user is a stop with a choice, and parallel outputs are cards. Built from a monthly updates workflow.
+        - #c:silver ^^**1. Draft**^^ #.box-ch-silver
+          - #c:ORANGE **Gather** the sources · agent
+          - #c:ORANGE **Write** the draft · agent
+          - #c:fuchsia ^^**Stop:**^^ you approve the draft.
+            - {{or: awaiting | approve | amend}}
+              - >
+        - #c:silver ^^**2. Publish**^^ #.box-ch-silver
+          - #c:fuchsia ^^**Stop:**^^ you approve each preview before it is scheduled. #.card-grid
+            - #c:ORANGE **Prepare** the article
+              - {{or: awaiting | approve | amend}}
+                - >
+            - #c:ORANGE **Prepare** the thread
+              - {{or: awaiting | approve | amend}}
+                - >
+    - **Tables:** one item per row, like the tables on this page. After writing, collapse every row, then the table itself. A table left open is unfinished.
+      - **Avoid replying inside a table.** If a reply must go in the table, add one column with a clear title, such as **Response**, and do it only once.
+  - **3. Thread ideas**
+    - Show the reader how ideas relate, with the fewest forms that make the meaning clear.
+    - **Relate**
+      - **Nesting asserts a relationship.**
+        - A child supports, opposes, explains, illustrates or follows from its parent.
+          - Ask of each block: why, how, or what follows? Nest the answer beneath it.
+      - Siblings are parallel ideas.
+        - **Steps in a sequence are siblings.** Put them under one parent with a numbered view. Never nest a step under the step before it.
+    - **Point**
+      - **A link asserts a relationship, not just a location.**
+        - **Name the relationship in the alias.** A link may support, oppose, explain, illustrate, run parallel to or follow from what it links. When the related idea exists as a block, link it instead of colouring it.
+        - **Never put a code span inside an alias label.** Backticks inside the square brackets stop the alias rendering. Write the label as plain words, and place any code span outside the brackets, before or after the alias.
+      - {{[[table]]}}
+        - **Mode**
+          - **When**
+        - Phrase alias
+          - **Default.** The words already in the sentence name the related thing: `[the approved plan](((uid)))`.
+        - Role label
+          - A TODO says __why__ it links: `[scope](((uid)))`. Inside a chain the reader must follow, use a phrase alias that names the meaning.
+        - `[*]` or `[source]`
+          - Plain attribution when no phrase fits.
+        - Bare `((uid))`
+          - The exact live wording should appear in place.
+        - Embed
+          - The whole block and its children must appear and stay editable in place, e.g. reusing a solved example or a template. Write commentary outside the embed, not inside the source.
+      - **Link the most specific block**: a table, query, image or single rule, not its heading. Read it first. Never invent a uid.
+      - **Keep links live.** Update or move existing blocks instead of deleting and recreating them, and never replace a live link with static text.
+      - **Reply slot:** to ask for the user's reply, leave an empty `>` block for them to write after, as the reply marker (see "Reply marker") describes.
+        - Never fill it with a placeholder such as "(your reply)".
+    - **Thread a chain:** within a passage, where the items have no blocks of their own, give related items the same quiet treatment, and a louder one where they resolve. The hue follows what is threaded. A linked item takes no colour.
+      - **Thread every chain the reader must follow:** a calculation, an explanation, an analogy, or anything else that helps them follow.
+        - **A chain is reasoning the reader must follow step by step to reach one payoff,** in maths or in prose. If the conclusion alone is enough, record the conclusion and do not thread it.
+        - In each step, mark only the item that step works on.
+          - Keep each mark minimal (see "Mark the fewest words that carry the point"), usually one or two words.
+        - Give weight only to the payoff (see "Spend weight at the payoff"), using the weight table (see the weight table under "Heaviness").
+          - Keep the payoff's mark wherever it appears again, such as in a check.
+      - **One thought, one hue family.**
+        - A hue family is one hue in its light and dark shades.
+        - A hue is chosen by its meaning, so another thought may use another hue.
+        - A thread's hue is local to its passage.
+        - Never mix hues inside one thread, such as orange leading to green.
+        - **Exception: parallel threads.** When two or more threads must be read together, each may keep its own hue.
+          - Use it only when it is necessary.
+          - Each thread still keeps one hue family where they meet, so no single thread mixes hues.
+      - **By shade:** #c:orange __gather notes__ and #c:orange __draft__ lead to #c:ORANGE ^^publish^^.
+      - **Example: find x in 2x + 3 = 11.** #.box-ch-silver
+        - **Steps**
+          - #c:ORANGE **Subtract** **3:** 2x + 3 − #c:green __3__ = 11 − #c:green __3__, so #c:green __2x = 8__
+          - #c:ORANGE **Divide** **by 2:** 2x ÷ #c:green __2__ = 8 ÷ #c:green __2__, so #c:GREEN ^^x = 4^^
+          - **Check:** 2 × #c:GREEN ^^4^^ + 3 = 11
+        - In maths, the working numbers stay in the thread's hue. Only the payoff changes, by weight.
+        - **Payoff test:** delete the steps, and #c:GREEN ^^x = 4^^ still answers the question.
+      - **Example: in LaTeX, work out $$(3.8\times10^{22})+(3.8\times10^{23})$$.** #.box-ch-silver
+        - **Steps**
+          - #c:ORANGE **Match** **the scale:** $$3.8\times10^{22}=0.38\times\,$$ #c:green __$$10^{23}$$__
+          - #c:ORANGE **Add** **the coefficients:** $$($$#c:green __$$0.38$$__$${}+{}$$#c:green __$$3.8$$__$$)\times10^{23}$$
+          - **Answer:** #c:GREEN ^^$$4.18\times10^{23}$$^^
+          - **Check:** #c:GREEN ^^$$4.18\times10^{23}$$^^ $${}-3.8\times10^{23}=0.38\times10^{23}=3.8\times10^{22}$$
+        - Each mark wraps a whole LaTeX piece. Each operator at a cut stays in an unmarked piece, padded so it keeps its spacing.
+      - **Example: in LaTeX, simplify $$\frac{10^3}{10^5}$$.** #.box-ch-silver
+        - **Steps**
+          - #c:ORANGE **Subtract** **the indices:** $$\frac{10^3}{10^5}=10^{\textcolor{green}{\underline{3}}-\textcolor{green}{\underline{5}}}$$
+          - **Answer:** #c:GREEN ^^$$10^{-2}$$^^
+        - The working items sit in an exponent, so their marks go inside the KaTeX (see "Exception: inside a fraction, root or exponent"), one on each index, and the minus stays unmarked. The payoff stands alone, so it takes the Roam mark.
+      - **Example: explain why 10³ ÷ 10⁵ is less than 1.** #.box-ch-silver
+        - **Steps**
+          - **Explain:** #c:orange __subtract__ the indices: 3 − 5 = #c:orange __−2__.
+          - **Picture it:** #c:blue ^^1 kg^^ of flour out of #c:blue ^^100 kg^^ is #c:blue ^^one hundredth^^.
+          - **So:** #c:ORANGE ^^10⁻²^^ is #c:BLUE ^^one hundredth^^, less than 1.
+        - **Parallel threads:** the explanation stays orange and the picture stays blue, because the reader needs both to reach "So". exception (see "Exception: parallel threads")
+      - **Example: which is the Problem, attention or understanding?** #.box-ch-silver
+        - **Steps**
+          - **Explain:** you can look at the right block and still not follow it, so #c:green __attention__ alone is not enough.
+          - **Your point:** nothing raises how much a person can understand.
+          - **So:** #c:GREEN __understanding is the Problem__, and attention is the first way to reach it.
+        - **A prose chain uses all three forms.** Each step is a sibling block. In a real graph, step 2 links to the user's reply, which exists as a block, so it takes no colour. The payoff takes the thick underline, because this is prose.
+  - **4. Separate thinking from doing**
+    - #c:green ^^**Reasoning**^^ goes in the reasoning section. In this graph it is headed `#c:green ^^**__[[📝 | notetoself]]__**^^`.
+    - #c:orange ^^**Actions**^^ go in the action section as TODOs, each linked to the smallest thought it came from. In this graph it is headed `#c:orange ^^**__[next]([[WORK]])__**^^`. Never duplicate a TODO, and never turn an observation into one. Give each TODO one or two links, to the best source.
+    - **If the reasoning section holds a raw dump** of the user's thoughts, restructure it first: one idea per block, nested by relationship, transcription errors corrected quietly, meaning and uncertainty kept. Then extract the actions.
+      - **If there is no dump**, write the reasoning in this form from the start and extract the actions as you go.
+    - **Deliberated decision:** record the reasoning first, then create and link the action. **Direct instruction:** just do it.
+    - **Close the loop.** After substantive work, log the outcome in the reasoning section and tick each completed TODO. A reply in chat alone is not enough.
+  - **5. Order in time**
+    - **Later writing sits above earlier writing.** The reasoning is written first, so the `next` section sits above `notetoself`, in the same way that later projects sit above earlier ones on the Daily Note Page.
+    - Inside `notetoself`, reasoning and unresolved questions go newest first, at the top.
+    - Actions for the current project: in order of execution. Carry-over actions move below new ones.
+  - **6. Address a reader**
+    - **Text to the user:** short sentences, one idea each, active voice, about 80% of the way to ASD-STE100.
+    - **Text written as the user:** keep their voice. Direct, plain and conversational; no em dashes, no hype.
+    - **Graph first, chat brief.** The detail lives in the graph. In chat, summarise at a high level what was done, without repeating the graph, unless the user asks for more.
+- **Graph rules**
+  - __Add your own graph rules here: where your agents should look and write in your graph. The five below suit most graphs; change or delete any of them.__
+  - **Reply marker:** a plain `>` quote nested under a block is the user speaking. Never write one with content yourself (use `!QUOTE`); the only `>` you write is an empty reply slot. Never edit the user's reply, and act on it or say why not.
+    - To ask the user for a reply, leave a reply slot (see "Reply slot").
+  - **Reference pages by their verified titles, not their UIDs.** Use `[[Page title]]`, or a phrase alias such as `[the page]([[Page title]])`. Reserve `((uid))` links and block aliases for actual blocks. A page UID may be used internally to retrieve the page; it is not a block-reference target. For a namespaced title containing nested page links, preserve the full verified title inside the page link.
+  - **Find context by navigating, not sweeping.** From the active project, follow block references three to five hops and page linked references five to seven hops, about a week. Search the graph broadly only when asked.
+  - **Never create a new page or tag without the user's approval.** Link or tag an existing page only when the text asserts a relationship to it. To suggest a new page, or to mention one in passing, wrap the name in code: `[[Page]]`.
+  - **Alias labels are plain text only.** Never put a code span, backticks or any code formatting inside the square brackets of an alias, as in `[label](((uid)))` or `[label]([[Page]])`. Backticks there break the link. Write the label as plain words, and put any code span outside the brackets, before or after the alias. This applies to every generated summary too, as the alias rule (see "Never put a code span inside an alias label") says.
+- [[>]] [[!WARNING]] **Verification: run it on everything you write, before you report done**
+  - Steps in a sequence are siblings, not a staircase.
+  - Every set of options is a decision table, or a card grid when the reader must see them side by side. Each row or card has a choice and an empty `>` reply slot. Each choice starts with `awaiting`.
+  - Every chain the reader must follow is threaded: working items take weight 2, the one payoff takes weight 3 (in maths, the dark highlight), and weight never drops, in one hue family per thread. A passage that answers no question has no marks. Equal items in a plain list take equal weight. Action labels colour only the action word, in dark orange. In maths, no operator sits inside a working mark; only an answer is marked whole. In LaTeX, every `$$` pairs up, no `{{` appears, and each mark wraps a whole piece. Links inside a chain name the meaning, not the source.
+  - Every hue matches its meaning in the hue table, such as blue for illustrations, written as a highlight.
+  - Teal marks only assumptions and prerequisites.
+  - Every table and each of its rows is collapsed, and so is every boxed header, except examples, illustrations, solutions and boxes with an open choice.
+  - Every box takes its header's hue, a header inside a coloured box takes the dark shade, and cards or a table under a coloured header sit inside its box.
+  - Every table column has a title, and a table holds at most one reply column.
+  - Each TODO has one or two links, to the exact thought it came from.
+  - Completed TODOs are ticked, and the outcome is logged in `notetoself`.
+  - `next` sits above `notetoself`, and the newest reasoning is on top.
